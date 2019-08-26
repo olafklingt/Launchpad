@@ -1,0 +1,12 @@
+(
+// required:
+    \name:           "Launchpad",
+    \path:           "Launchpad",
+    \summary:        "Launchpad GUI",
+    \author:         "Olaf Hochherz",
+    \since:          "2018",
+    \schelp:         "Launchpad",
+    \ext_dependancy: "",
+    \url:            "https://github.com/olafklingt/Launchpad",
+
+)
