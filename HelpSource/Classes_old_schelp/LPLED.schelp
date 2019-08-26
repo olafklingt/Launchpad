@@ -1,0 +1,88 @@
+TITLE:: LPLED
+summary:: A class to specify the color and behavior of the LED of the launchpad
+categories:: Classes
+related:: Classes/SomeRelatedClass, Reference/SomeRelatedStuff, etc.
+
+DESCRIPTION::
+LPLED is used to specify the color of a Lauchpad LED.
+It includes also behaviors related to doublebuffering (as Specified in the Lauchpad Manual) but I did not use this.
+there is no need to deal with the internals of a LPLED.
+
+CLASSMETHODS::
+
+METHOD:: yellow
+returns a LPLED in yellow color.
+
+ARGUMENT:: s
+s is 1 or 2 for the brightness.
+
+returns:: a LPLED
+
+METHOD:: new
+compose your color yourself.
+
+ARGUMENT:: green
+0-3 brightness of the green LED.
+
+ARGUMENT:: red
+0-3 brightness of the red LED.
+
+ARGUMENT:: clear
+argument related to doublebuffering (not tested).
+
+ARGUMENT:: copy
+argument related to doublebuffering (not tested).
+
+returns:: a LPLED
+
+METHOD:: green
+returns a LPLED in green color.
+
+ARGUMENT:: s
+1-3 brightness of the LED.
+
+returns:: a LPLED
+
+METHOD:: orange
+returns a LPLED in orange color.
+
+ARGUMENT:: s
+1-2 brightness of the LED.
+
+returns:: a LPLED
+
+METHOD:: black
+returns a LPLED in black.
+
+returns:: a LPLED
+
+METHOD:: red
+returns a LPLED in red color.
+
+ARGUMENT:: s
+1-3 brightness of the LED.
+
+returns:: a LPLED
+
+METHOD:: amber
+returns a LPLED in amber color.
+
+ARGUMENT:: s
+1-3 brightness of the LED.
+
+returns:: a LPLED
+
+
+INSTANCEMETHODS::
+
+METHOD:: vel
+this method returns the velocity value.
+this is only useful when you like to set a LED on the Lauchpad by hand.
+
+code::
+Launchpad.setLED(1,2,LPLED.amber(3).vel);
+Launchpad.setLED(2,4,LPLED.green(2).vel);
+Launchpad.setLED(3,5,LPLED.red(1).vel);
+::
+
+returns:: a Integer

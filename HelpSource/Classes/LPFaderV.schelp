@@ -1,0 +1,56 @@
+TITLE:: LPFaderV
+summary:: a Launchpad-GUI-Element (LPView subclass)
+categories:: Launchpad
+related:: Classes/LPButton, Classes/LPButtonArray, Classes/LPColorArea, Classes/LPFaderV, Classes/LPFaderH, Classes/LPInvisibleButtonArray, Classes/LPLED, Classes/LPPad, Classes/LPPushButton, Classes/LPPushStepButton, Classes/LPRange, Classes/LPSlider, Classes/LPSwitchSlider, Classes/LPView
+DESCRIPTION::
+A Lauchpad-GUI-Element (LPView subclass) which is modeled afer vertical "fader". But because it follows the counting of the coordinates the lowest value is top left.
+
+
+CLASSMETHODS::
+
+COPYMETHOD:: LPView *new
+
+INSTANCEMETHODS::
+
+METHOD:: ofled
+LPLED describing the color of the buttons below of the selected button.
+
+METHOD:: onled
+LPLED describing the color of the buttons of the selected button and on top of it.
+
+COPYMETHOD:: LPView -front
+
+COPYMETHOD:: LPView -hide
+
+COPYMETHOD:: LPView -onfront
+
+COPYMETHOD:: LPView -onhide
+
+COPYMETHOD:: LPView -action
+
+
+EXAMPLES::
+
+code::
+//Launchpad.initMIDI;//is the Launchpad initialized?
+
+a = LPFaderV(Launchpad.getRange(8,1,8,8),{"Do something when the button is put to the front of the Launchpad.".postln},{"Do something when it is hidden from the Launchpad.".postln});
+
+a.onled = LPLED.red;
+
+a.ofled = LPLED.green;
+
+a.action = {|b| "Print Current state:".post; b.value.postln; };
+
+a.front;
+a.hide;// to hide the gui element
+::
+
+PRIVATE:: responseOn
+PRIVATE:: responseOff
+PRIVATE:: updateLEDs
+PRIVATE:: range
+PRIVATE:: front
+PRIVATE:: action
+PRIVATE:: value
+

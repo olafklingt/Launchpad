@@ -1,0 +1,86 @@
+TITLE:: LPSlider
+summary:: a Lauchpad-GUI-Element (LPView subclass)
+categories:: Classes
+related::  Classes/LPView, Classes/Launchpad
+
+DESCRIPTION::
+A Lauchpad-GUI-Element (LPView subclass) which models a slider functionality on the buttons of the Launchpad.drumMod
+
+CLASSMETHODS::
+
+METHOD:: new
+
+ARGUMENT:: range
+A LPRange you will get from Lauchpad.
+
+ARGUMENT:: onfront
+a function which will be called when the view is called to be on the front of the Lauchpad.
+
+ARGUMENT:: onhide
+a function which will be called when the view is called to be on the removed from the Lauchpad.
+
+returns:: a LPSlider
+
+
+INSTANCEMETHODS::
+
+METHOD:: steps
+(describe method here)
+
+returns:: (describe returnvalue here)
+
+METHOD:: value
+(describe method here)
+
+ARGUMENT:: v
+(describe argument here)
+
+returns:: (describe returnvalue here)
+
+METHOD:: updateLEDs
+(describe method here)
+
+returns:: (describe returnvalue here)
+
+METHOD:: background
+(describe method here)
+
+returns:: (describe returnvalue here)
+
+METHOD:: getLED
+(describe method here)
+
+ARGUMENT:: p
+(describe argument here)
+
+ARGUMENT:: i
+(describe argument here)
+
+returns:: (describe returnvalue here)
+
+METHOD:: onoff
+(describe method here)
+
+returns:: (describe returnvalue here)
+
+METHOD:: front
+(describe method here)
+
+returns:: (describe returnvalue here)
+
+METHOD:: action
+(describe method here)
+
+returns:: (describe returnvalue here)
+
+METHOD:: color
+(describe method here)
+
+returns:: (describe returnvalue here)
+
+
+EXAMPLES::
+
+code::
+(some example code)
+::

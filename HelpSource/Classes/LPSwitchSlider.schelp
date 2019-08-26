@@ -1,0 +1,102 @@
+TITLE:: LPSwitchSlider
+summary:: a Launchpad-GUI-Element (LPView subclass)
+categories:: Launchpad
+related:: Classes/LPButton, Classes/LPButtonArray, Classes/LPColorArea, Classes/LPFaderV, Classes/LPFaderH, Classes/LPInvisibleButtonArray, Classes/LPLED, Classes/LPPad, Classes/LPPushButton, Classes/LPPushStepButton, Classes/LPRange, Classes/LPSlider, Classes/LPSwitchSlider, Classes/LPView
+
+DESCRIPTION::
+A Lauchpad-GUI-Element (LPView subclass) which is a Implementing a slider.
+
+DOCUMENTATION HAS TO BE DONE LATER I USED THIS CLASS BUT IT IS IMPLEMENTED RATHER STUPIDLY. I THINK I HAVE TO REVIEW THIS BEFORE PUBLISHING.
+
+CLASSMETHODS::
+
+COPYMETHOD:: LPView *new
+
+
+INSTANCEMETHODS::
+
+METHOD:: background
+(describe method here)
+
+returns:: (describe returnvalue here)
+
+METHOD:: updateLEDs
+(describe method here)
+
+returns:: (describe returnvalue here)
+
+METHOD:: sliderval
+(describe method here)
+
+returns:: (describe returnvalue here)
+
+METHOD:: ledfunction
+(describe method here)
+
+ARGUMENT:: ledfunction_
+(describe argument here)
+
+returns:: (describe returnvalue here)
+
+METHOD:: responseOff
+(describe method here)
+
+ARGUMENT:: lppad
+(describe argument here)
+
+ARGUMENT:: buttonid
+(describe argument here)
+
+returns:: (describe returnvalue here)
+
+METHOD:: front
+(describe method here)
+
+ARGUMENT::  ... args
+(describe argument here)
+
+returns:: (describe returnvalue here)
+
+METHOD:: responseOn
+(describe method here)
+
+ARGUMENT:: lppad
+(describe argument here)
+
+ARGUMENT:: buttonid
+(describe argument here)
+
+returns:: (describe returnvalue here)
+
+METHOD:: slideraction
+(describe method here)
+
+ARGUMENT:: slideraction_
+(describe argument here)
+
+returns:: (describe returnvalue here)
+
+METHOD:: slidervalfunction
+(describe method here)
+
+ARGUMENT:: slidervalfunction_
+(describe argument here)
+
+returns:: (describe returnvalue here)
+
+METHOD:: state
+(describe method here)
+
+returns:: (describe returnvalue here)
+
+METHOD:: color
+(describe method here)
+
+returns:: (describe returnvalue here)
+
+
+EXAMPLES::
+
+code::
+(some example code)
+::

@@ -1,0 +1,27 @@
+TITLE:: LPPad
+summary:: A Class used internal to the Launchpad GUI system
+categories:: Launchpad
+related:: Classes/LPButton, Classes/LPButtonArray, Classes/LPColorArea, Classes/LPFaderV, Classes/LPFaderH, Classes/LPInvisibleButtonArray, Classes/LPLED, Classes/LPPad, Classes/LPPushButton, Classes/LPPushStepButton, Classes/LPRange, Classes/LPSlider, Classes/LPSwitchSlider, Classes/LPView
+
+DESCRIPTION::
+A LPPad represents a Pad on the Launchpad.
+
+CLASSMETHODS::
+
+METHOD:: new
+
+should not be created by hand
+
+
+INSTANCEMETHODS::
+
+PRIVATE:: updateLED
+PRIVATE:: x
+PRIVATE:: init
+PRIVATE:: y
+PRIVATE:: responseOff
+PRIVATE:: reset
+PRIVATE:: responseOn
+PRIVATE:: setLED
+PRIVATE:: add
+PRIVATE:: remove

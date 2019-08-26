@@ -1,0 +1,49 @@
+TITLE:: LPView
+summary:: LPView is a SuperClass for what could also be called Lauchpad-GUI-Elements.
+categories:: Classes
+related:: Classes/LPButton, Classes/LPButtonArray, Classes/LPColorArea, Classes/LPPushButton, Classes/LPSlider, Classes/LPSwitchSlider, Classes/Launchpad, Classes/LPArea
+
+DESCRIPTION::
+LPView is not used by itself, it is a superclass for what could also be called Lauchpad-GUI-Elements.
+tThe constructor class method new is the same for all LPView subclasses.
+
+CLASSMETHODS::
+
+METHOD:: new
+
+ARGUMENT:: range
+A LPRange you will get from Lauchpad.
+
+ARGUMENT:: onfront
+a function which will be called when the view is called to be on the front of the Lauchpad.
+
+ARGUMENT:: onhide
+a function which will be called when the view is called to be on the removed from the Lauchpad.
+
+returns:: a LPView
+
+INSTANCEMETHODS::
+
+METHOD:: front
+put the LPView onto the front of the lauchpad.
+(like open a window).
+
+ARGUMENT::  ... args
+only the LPView class has arguments... this is maybe wrong!
+arguments which will forwarded to the onhide-function.
+
+METHOD:: hide
+remove the LPView from the Lauchpad.
+(like close a window)
+
+ARGUMENT:: updateLEDs
+bolean to decide if the LEDs realy have to be updated. this might be helpful when a view is removed and another view will called immediately after this which will cover the same range.
+
+ARGUMENT::  ... args
+arguments which will forwarded to the onhide-function.
+
+EXAMPLES::
+
+code::
+(some example code)
+::

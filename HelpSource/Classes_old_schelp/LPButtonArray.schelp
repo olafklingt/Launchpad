@@ -1,0 +1,47 @@
+TITLE:: LPButtonArray
+summary:: a Lauchpad-GUI-Element (LPView subclass)
+categories:: Classes
+related:: Classes/LPView, Classes/Launchpad
+
+DESCRIPTION::
+A Lauchpad-GUI-Element (LPView subclass) which is an array of Push-Buttons which share one action function.
+
+CLASSMETHODS::
+
+METHOD:: new
+
+ARGUMENT:: range
+A LPRange you will get from Lauchpad.
+
+ARGUMENT:: onfront
+a function which will be called when the view is called to be on the front of the Lauchpad.
+
+ARGUMENT:: onhide
+a function which will be called when the view is called to be on the removed from the Lauchpad.
+
+returns:: a LPButtonArray
+
+
+INSTANCEMETHODS::
+
+METHOD:: ofleds
+Sets or returns An Array of LPLEDs describing the color of the Buttons when they are not pushed.
+
+METHOD:: onleds
+Sets or returns An Array of LPLEDs describing the color of the Buttons when they are not pushed.
+
+METHOD:: action
+Sets or returns a function which get this LPButtonArray as argument.
+
+METHOD:: front
+put the LPView onto the front of the lauchpad.
+(like open a window).
+
+METHOD:: value
+Sets or returns the index of the current state. This will not evaluate the function assigned to action.
+
+EXAMPLES::
+
+code::
+(some example code)
+::

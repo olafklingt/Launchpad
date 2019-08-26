@@ -1,0 +1,37 @@
+TITLE:: LPColorArea
+summary:: a Lauchpad-GUI-Element (LPView subclass)
+categories:: Classes
+related:: Classes/LPView, Classes/Launchpad
+
+DESCRIPTION::
+A Lauchpad-GUI-Element (LPView subclass) which has a color but no action.
+
+CLASSMETHODS::
+
+METHOD:: new
+
+ARGUMENT:: range
+A LPRange you will get from Lauchpad.
+
+ARGUMENT:: onfront
+a function which will be called when the view is called to be on the front of the Lauchpad.
+
+ARGUMENT:: onhide
+a function which will be called when the view is called to be on the removed from the Lauchpad.
+
+returns:: a LPColorArea
+
+INSTANCEMETHODS::
+
+METHOD:: led
+Sets or returns a LPLED which defines the color of the area.
+
+METHOD:: front
+put the LPView onto the front of the lauchpad.
+(like open a window).
+
+EXAMPLES::
+
+code::
+(some example code)
+::

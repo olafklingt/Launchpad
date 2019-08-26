@@ -1,0 +1,48 @@
+TITLE:: LPPushButton
+summary:: a Lauchpad-GUI-Element (LPView subclass)
+categories:: Classes
+related:: Classes/LPView, Classes/Launchpad
+
+DESCRIPTION::
+A Lauchpad-GUI-Element (LPView subclass) which has 2 states pushed and released.
+
+CLASSMETHODS::
+
+METHOD:: new
+
+ARGUMENT:: range
+A LPRange you will get from Lauchpad.
+
+ARGUMENT:: onfront
+a function which will be called when the view is called to be on the front of the Lauchpad.
+
+ARGUMENT:: onhide
+a function which will be called when the view is called to be on the removed from the Lauchpad.
+
+returns:: a LPPushButton
+
+INSTANCEMETHODS::
+
+METHOD:: onPushLED
+Sets or returns the LPLED which is used when the Button is pushed.
+
+METHOD:: onReleaseLED
+Sets or returns the LPLED which is used when the Button is released.
+
+METHOD:: onPushFunction
+Sets or returns a Function which is called when the Button is pushed.
+the function gets this LPPushButton as argument.
+
+METHOD:: onReleaseFunction
+Sets or returns a Function which is called when the Button is released.
+the function gets this LPPushButton as argument.
+
+METHOD:: front
+put the LPView onto the front of the lauchpad.
+(like open a window).
+
+EXAMPLES::
+
+code::
+(some example code)
+::

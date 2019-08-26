@@ -1,0 +1,66 @@
+TITLE:: LPPushButton
+summary:: a Launchpad-GUI-Element (LPView subclass)
+categories:: Launchpad
+related:: Classes/LPButton, Classes/LPButtonArray, Classes/LPColorArea, Classes/LPFaderV, Classes/LPFaderH, Classes/LPInvisibleButtonArray, Classes/LPLED, Classes/LPPad, Classes/LPPushButton, Classes/LPPushStepButton, Classes/LPRange, Classes/LPSlider, Classes/LPSwitchSlider, Classes/LPView
+
+DESCRIPTION::
+A Lauchpad-GUI-Element (LPView subclass) which is modeled afer a push button.
+
+
+CLASSMETHODS::
+
+COPYMETHOD:: LPView *new
+
+INSTANCEMETHODS::
+
+
+METHOD:: onReleaseLED
+
+A LPLED that describes the color the state of release.
+
+METHOD:: onPushLED
+
+A LPLED that describes the color the state of push.
+
+METHOD:: onReleaseFunction
+
+Function called when the Button is released.
+
+METHOD:: onPushFunction
+
+Function called when the Button is pushed.
+
+COPYMETHOD:: LPView -front
+
+COPYMETHOD:: LPView -hide
+
+COPYMETHOD:: LPView -onfront
+
+COPYMETHOD:: LPView -onhide
+
+COPYMETHOD:: LPView -value
+
+EXAMPLES::
+
+code::
+// Launchpad.initMIDI;//is the Launchpad initialized?
+
+a = LPPushButton(Launchpad.getRange(5,5,5,5),{"Function called when the button is put to the front of the Launchpad.".postln},{"Function called when it is hidden from the Launchpad.".postln});
+
+a.onReleaseLED = LPLED.green;
+
+a.onPushLED = LPLED.red;
+
+a.onReleaseFunction = {"Button is released".postln};
+
+a.onPushFunction = {"Button is pushed".postln};
+
+a.front;
+// a.hide;// to hide the gui element
+::
+
+PRIVATE:: responseOff
+PRIVATE:: responseOn
+PRIVATE:: updateLEDs
+PRIVATE:: front
+PRIVATE:: action

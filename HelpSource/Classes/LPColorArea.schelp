@@ -1,0 +1,47 @@
+TITLE:: LPColorArea
+summary:: a Launchpad-GUI-Element (LPView subclass)
+categories:: Launchpad
+related:: Classes/LPButton, Classes/LPButtonArray, Classes/LPColorArea, Classes/LPFaderV, Classes/LPFaderH, Classes/LPInvisibleButtonArray, Classes/LPLED, Classes/LPPad, Classes/LPPushButton, Classes/LPPushStepButton, Classes/LPRange, Classes/LPSlider, Classes/LPSwitchSlider, Classes/LPView
+
+DESCRIPTION::
+A Lauchpad-GUI-Element (LPView subclass) which has a color but no action.
+
+
+CLASSMETHODS::
+
+COPYMETHOD:: LPView *new
+
+INSTANCEMETHODS::
+
+METHOD:: led
+
+a LPLED which defines the color of the area.
+
+COPYMETHOD:: LPView -front
+
+COPYMETHOD:: LPView -hide
+
+COPYMETHOD:: LPView -onfront
+
+COPYMETHOD:: LPView -onhide
+
+EXAMPLES::
+
+Creates a LPColorArea of 4 buttons in the third row of the Launchpad.
+
+code::
+//Launchpad.initMIDI;//is the Launchpad initialized?
+
+a = LPColorArea(Launchpad.getRange(0,2,3,2),{"Do something when the button is put to the front of the Launchpad.".postln},{"Do something when it is hidden from the Launchpad.".postln});
+
+a.led = LPLED.yellow;
+
+a.front;
+
+// a.hide;// to hide the gui element
+(some example code)
+::
+
+PRIVATE:: updateLEDs
+PRIVATE:: value
+PRIVATE:: front

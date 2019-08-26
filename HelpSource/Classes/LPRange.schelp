@@ -1,0 +1,24 @@
+TITLE:: LPRange
+summary:: A Class used internal to the Launchpad GUI system
+categories:: Launchpad
+related:: Classes/LPButton, Classes/LPButtonArray, Classes/LPColorArea, Classes/LPFaderV, Classes/LPFaderH, Classes/LPInvisibleButtonArray, Classes/LPLED, Classes/LPPad, Classes/LPPushButton, Classes/LPPushStepButton, Classes/LPRange, Classes/LPSlider, Classes/LPSwitchSlider, Classes/LPView
+
+DESCRIPTION::
+A LPRange contains the LPPads within a specific area. The area on which a Launchpad Gui Element will act.
+
+CLASSMETHODS::
+
+METHOD:: new
+
+Should not be created by hand.
+
+INSTANCEMETHODS::
+
+PRIVATE:: pads
+PRIVATE:: setLED
+PRIVATE:: init
+
+METHOD:: getRange
+
+a given range can return a sub-range ... i never used this function.
+

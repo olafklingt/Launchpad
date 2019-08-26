@@ -1,0 +1,34 @@
+TITLE:: LPRange
+summary:: LPRange is a class returned from Launchpad to be used with LPView-subclasses to specifiy the area on the Lauchpad a LPView will cover.
+categories:: Classes
+related:: Classes/Launchpad
+
+DESCRIPTION::
+LPRange is a class returned from Launchpad to be used with LPView-subclasses to specifiy the area on the Lauchpad a LPView will cover.
+
+Usually it is created by Launchpad and not instantiated by hand.
+
+code::
+r=Launchpad.getRange(1,2,5,5)
+::
+
+
+INSTANCEMETHODS::
+
+METHOD:: getRange
+this is a method to get a subrange of a LPRange.
+
+ARGUMENT:: fx
+from value X
+
+ARGUMENT:: fy
+and value Y
+
+ARGUMENT:: tx
+to value X
+
+ARGUMENT:: ty
+and value Y
+
+returns:: a LPRange
+

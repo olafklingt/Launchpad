@@ -1,0 +1,67 @@
+TITLE:: LPView
+summary:: LPView is a SuperClass for what could also be called Launchpad-GUI-Elements.
+categories:: Launchpad
+related:: Classes/LPButton, Classes/LPButtonArray, Classes/LPColorArea, Classes/LPFaderV, Classes/LPFaderH, Classes/LPInvisibleButtonArray, Classes/LPLED, Classes/LPPad, Classes/LPPushButton, Classes/LPPushStepButton, Classes/LPRange, Classes/LPSlider, Classes/LPSwitchSlider, Classes/LPView
+
+DESCRIPTION::
+LPView is not used by itself, it is a superclass for what could also be called Lauchpad-GUI-Elements.
+The constructor class method new is the same for all LPView subclasses.
+
+
+CLASSMETHODS::
+
+METHOD:: new
+
+creates a new LPView need to be initialized further for use.
+
+ARGUMENT:: range
+A LPRange you will get from Lauchpad.
+
+ARGUMENT:: onfront
+A function which will be called when the view put on the front of the Lauchpad.
+
+ARGUMENT:: onhide
+A function which will be called when the view is removed from the Lauchpad.
+
+returns:: a LPView
+
+INSTANCEMETHODS::
+
+METHOD:: front
+put the LPView onto the front of the lauchpad.
+(like open a window).
+
+ARGUMENT::  ... args
+arguments which will forwarded to the onfront-function.
+
+METHOD:: hide
+remove the LPView from the Lauchpad.
+(like close a window)
+
+ARGUMENT:: updateLEDs
+bolean to decide if the LEDs realy have to be updated. this might be helpful when a view is removed and another view will called immediately after this which will cover the same range.
+
+ARGUMENT::  ... args
+arguments which will forwarded to the onhide-function.
+
+METHOD:: onfront
+
+Function that is called on front.
+
+METHOD:: onhide
+
+Function that is called on hide.
+
+
+METHOD:: value
+
+State of the LPView usually a integer.
+
+METHOD:: action
+
+A function that is called when the Button on the Launchpad is pushed. The function gets as first argument the LPView itself.
+
+PRIVATE:: responseOn
+PRIVATE:: responseOff
+PRIVATE:: updateLEDs
+PRIVATE:: range

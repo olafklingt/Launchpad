@@ -1,0 +1,49 @@
+TITLE:: LPButtonArray
+summary:: a Launchpad-GUI-Element (LPView subclass)
+categories:: Launchpad
+related:: Classes/LPButton, Classes/LPButtonArray, Classes/LPColorArea, Classes/LPFaderV, Classes/LPFaderH, Classes/LPInvisibleButtonArray, Classes/LPLED, Classes/LPPad, Classes/LPPushButton, Classes/LPPushStepButton, Classes/LPRange, Classes/LPSlider, Classes/LPSwitchSlider, Classes/LPView
+
+DESCRIPTION::
+A Lauchpad-GUI-Element (LPView subclass) which is an array of Push-Buttons which share one action function.
+
+CLASSMETHODS::
+
+COPYMETHOD:: LPView *new
+
+INSTANCEMETHODS::
+
+METHOD:: onleds
+Array of LPLEDs describing the color of the Buttons in the state of being selected.
+
+METHOD:: ofleds
+Array of LPLEDs describing the color of the Buttons in the state of being not selected.
+
+METHOD:: action
+A function that is called when the Button on the Launchpad is pushed. The function gets as first argument the LPButtonArray itself.
+
+COPYMETHOD:: LPView -front
+
+COPYMETHOD:: LPView -hide
+
+COPYMETHOD:: LPView -onfront
+
+COPYMETHOD:: LPView -onhide
+
+COPYMETHOD:: LPView -value
+
+EXAMPLES::
+
+code::
+//Launchpad.initMIDI;//is the Launchpad initialized?
+
+a = LPButtonArray(Launchpad.getRange(0,1,7,1),{"Do something when the button is put to the front of the Launchpad.".postln},{"Do something when it is hidden from the Launchpad.".postln});
+a.onleds = LPLED.red!8;
+a.ofleds = LPLED.green!8;
+a.action = {|b| "Print Current state:".post; b.value.postln; };
+a.front;
+// a.hide;// to hide the gui element
+::
+
+PRIVATE:: responseOff
+PRIVATE:: responseOn
+PRIVATE:: updateLEDs
