@@ -37,8 +37,8 @@ COPYMETHOD:: LPView -value
 EXAMPLES::
 
 code::
-// Launchpad.initMIDI;//is the Launchpad initialized?
-
+Launchpad.initMIDI;//is the Launchpad initialized?
+(
 a = LPPushStepButton(Launchpad.getRange(0,0,0,0),{"Function called when the button is put to the front of the Launchpad.".postln},{"Function called when it is hidden from the Launchpad.".postln});
 
 a.onPushLED = LPLED.red;
@@ -52,7 +52,9 @@ a.states = [LPLED.green(1),LPLED.green(2),LPLED.green(3),LPLED.yellow(3)];
 a.action = {|b| "Print Current state:".post; b.value.postln; };
 
 a.front;
-// a.hide;// to hide the gui element
+)
+
+a.hide;// to hide the gui element
 ::
 
 PRIVATE:: responseOff

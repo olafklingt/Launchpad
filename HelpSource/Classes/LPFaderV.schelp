@@ -32,8 +32,8 @@ COPYMETHOD:: LPView -action
 EXAMPLES::
 
 code::
-//Launchpad.initMIDI;//is the Launchpad initialized?
-
+Launchpad.initMIDI;//is the Launchpad initialized?
+(
 a = LPFaderV(Launchpad.getRange(8,1,8,8),{"Do something when the button is put to the front of the Launchpad.".postln},{"Do something when it is hidden from the Launchpad.".postln});
 
 a.onled = LPLED.red;
@@ -43,6 +43,7 @@ a.ofled = LPLED.green;
 a.action = {|b| "Print Current state:".post; b.value.postln; };
 
 a.front;
+)
 a.hide;// to hide the gui element
 ::
 

@@ -80,9 +80,15 @@ this method returns the velocity value.
 this is only useful when you like to set a LED on the Lauchpad by hand.
 
 code::
+Launchpad.initMIDI; // before the Launchpad can be used it has to be initialized
+
 Launchpad.setLED(1,2,LPLED.amber(3).vel);
+
 Launchpad.setLED(2,4,LPLED.green(2).vel);
+
 Launchpad.setLED(3,5,LPLED.red(1).vel);
+
+Launchpad.resetLED;
 ::
 
 returns:: a Integer

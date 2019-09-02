@@ -4,8 +4,7 @@ categories:: Launchpad
 related:: Classes/LPButton, Classes/LPButtonArray, Classes/LPColorArea, Classes/LPFaderV, Classes/LPFaderH, Classes/LPInvisibleButtonArray, Classes/LPLED, Classes/LPPad, Classes/LPPushButton, Classes/LPPushStepButton, Classes/LPRange, Classes/LPSlider, Classes/LPSwitchSlider, Classes/LPView
 
 DESCRIPTION::
-LPView is not used by itself, it is a superclass for what could also be called Lauchpad-GUI-Elements.
-The constructor class method new is the same for all LPView subclasses.
+LPView is not used by itself, it is a superclass for what is called Lauchpad-GUI-Element. The constructor class method new is the same for all LPView subclasses.
 
 
 CLASSMETHODS::

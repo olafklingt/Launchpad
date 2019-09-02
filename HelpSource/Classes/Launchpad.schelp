@@ -10,6 +10,18 @@ To use the Lauchpad clases it has to be initialized with Lauchpad.initMIDI .
 
 The class gets mostly used for the GetRange function that returns a LPRange that holds references to the Launchpad LED-Buttons.
 
+Example of creating a button on the launchpad
+code::
+Launchpad.initMIDI; // before the Launchpad can be used it has to be initialized
+(
+a = LPButton(Launchpad.getRange(0,0,0,0),{"Do something when the button is put to the front of the Launchpad.".postln},{"Do something when it is hidden from the Launchpad.".postln});
+a.states = [LPLED.green,LPLED.red,LPLED.yellow];
+a.action = {|b| "Print Current state:".post; b.value.postln; };
+a.front;
+)
+a.hide;// to hide the gui element
+
+::
 
 
 METHOD:: getRange
@@ -42,11 +54,6 @@ ARGUMENT:: num
 
 ARGUMENT:: denum
 
-METHOD:: xyMode
-set Launchpad to XY-Mode (as described in the Lauchpad Manual) its the default mode.
-
-METHOD:: drumMode
-set Launchpad to Drum-Mode (as described in the Lauchpad Manual), but it is not used by the Launchpad GUI system.
 
 METHOD:: setLED
 set an LED on the Launchpad. (this is normaly implicitly called from the Lauchpad-GUI-Element).
@@ -67,14 +74,13 @@ Launchpad.setLED(2,4,LPLED.green(2).vel);
 Launchpad.setLED(3,5,LPLED.red(1).vel);
 ::
 
+METHOD:: xyMode
+set Launchpad to XY-Mode (as described in the Lauchpad Manual) its the default mode.
+
+METHOD:: drumMode
+set Launchpad to Drum-Mode (as described in the Lauchpad Manual), but it is not used by the Launchpad GUI system.
 
 
 INSTANCEMETHODS::
 
-EXAMPLES::
 
-code::
-Launchpad.initMIDI; // before the Launchpad can be used it has to be initialized
-
-
-::

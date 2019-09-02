@@ -30,15 +30,15 @@ EXAMPLES::
 Creates a LPColorArea of 4 buttons in the third row of the Launchpad.
 
 code::
-//Launchpad.initMIDI;//is the Launchpad initialized?
-
+Launchpad.initMIDI;//is the Launchpad initialized?
+(
 a = LPColorArea(Launchpad.getRange(0,2,3,2),{"Do something when the button is put to the front of the Launchpad.".postln},{"Do something when it is hidden from the Launchpad.".postln});
 
 a.led = LPLED.yellow;
 
 a.front;
-
-// a.hide;// to hide the gui element
+)
+a.hide;// to hide the gui element
 (some example code)
 ::
 

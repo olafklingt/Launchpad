@@ -43,8 +43,8 @@ COPYMETHOD:: LPView -value
 EXAMPLES::
 
 code::
-// Launchpad.initMIDI;//is the Launchpad initialized?
-
+Launchpad.initMIDI;//is the Launchpad initialized?
+(
 a = LPPushButton(Launchpad.getRange(5,5,5,5),{"Function called when the button is put to the front of the Launchpad.".postln},{"Function called when it is hidden from the Launchpad.".postln});
 
 a.onReleaseLED = LPLED.green;
@@ -56,7 +56,8 @@ a.onReleaseFunction = {"Button is released".postln};
 a.onPushFunction = {"Button is pushed".postln};
 
 a.front;
-// a.hide;// to hide the gui element
+)
+a.hide;// to hide the gui element
 ::
 
 PRIVATE:: responseOff
