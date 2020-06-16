@@ -90,7 +90,7 @@ Launchpad{
 		//tty=if(fy>=(ty?0),{fy+1},{ty+1s});
 		ttx=tx?fx;
 		tty=ty?fy;
-		^LPRange(pads.copyRange(fx,fy,ttx,tty));
+		^LPRange.fromPadRange(pads,fx,fy,ttx,tty);
 	}
 	//simply set LEDs
 	*setLED{|x,y,val|
@@ -122,6 +122,16 @@ Launchpad{
 
 LPRange{
 	var <>pads;
+	*fromPadRange{|p, fx, fy, tx, ty|
+		var newPads = Array2D.new;
+		(fx..fy).do{|f, fi|
+			(tx..ty).do{|t, ti|
+				newPads.put(fi, ti, p.at(f, t));
+			};
+		};
+		LPRange(newPads);
+	}
+
 	*new{|b|
 		^super.new.init(b);
 	}
@@ -133,7 +143,7 @@ LPRange{
 		ttx=tx?fx;
 		tty=ty?fy;
 		"ERROR: IS THIS BEFORE THE ERROR".debug(\before_copy);
-		out=LPRange(pads.copyRange(fx,fy,ttx,tty).debug(\copiedrange));
+		out=LPRange.fromPadRange(pads,fx,fy,ttx,tty).debug(\copiedrange);
 		"ERROR: IS THIS AFTER THE ERROR".debug(\after_copy);
 		^out;
 	}
