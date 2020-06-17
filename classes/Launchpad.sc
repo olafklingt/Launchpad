@@ -123,10 +123,10 @@ Launchpad{
 LPRange{
 	var <>pads;
 	*fromPadRange{|p, fx, fy, tx, ty|
-		var newPads = Array2D.new(1 + (ty - fy), 1 + (tx - fx));
+		var newPads = Array2D.new(1 + (tx - fx), 1 + (ty - fy));
 		(fx..tx).do{|x, xi|
 			(fy..ty).do{|y, yi|
-				newPads.put(yi, xi, p.at(x, y));
+				newPads.put(xi, yi, p.at(x, y));
 			};
 		};
 		^LPRange.new(newPads);
