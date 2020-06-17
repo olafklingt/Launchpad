@@ -6,7 +6,6 @@ Launchpad{
 	*initClass{
 		Launchpad.pads=Array2D.fromArray(9,9,
 			Array.fill(81,{|i|LPPad .new((i/9).asInteger,i%9)}));
-		// Launchpad.initMIDI;
 	}
 	*initMIDI{
 		var non,nof,co,midisource,mididestination;
@@ -15,7 +14,7 @@ Launchpad{
 			var y=(num-x)/16;
 			if(val===127,{
 				pads.at(x,y+1).responseOn;
-				},{
+			},{
 				pads.at(x,y+1).responseOff(pads.at(x,y+1));
 			});
 		};
@@ -28,12 +27,11 @@ Launchpad{
 			var x=num-104;
 			if((val%2)===1,{
 				pads.at(x,0).responseOn;
-				},{
+			},{
 				pads.at(x,0).responseOff(pads.at(x,0));
 			})
 		};
 		MIDIClient.init;
-		// MIDIClient.initialized
 		midisource=MIDIClient.sources.detect{|a|a.name.contains("Launchpad")};
 		if(midisource.notNil,{
 			mididestination=MIDIClient.destinations.detect{|a|a.name.contains("Launchpad")};
@@ -45,9 +43,9 @@ Launchpad{
 			cor=CCResponder(co,midisource.uid,swallowEvent:true);
 			Launchpad.setupLP;
 			^ 1;
-			},{
-				"Launchpad Not available".postln;
-				^nil;
+		},{
+			"Launchpad Not available".postln;
+			^nil;
 		})
 	}
 	*resetPads{
@@ -86,8 +84,6 @@ Launchpad{
 	}
 	*getRange{|fx,fy,tx,ty|
 		var ttx,tty;
-		//ttx=if(fx>=(tx?0),{fx+1},{tx+1});
-		//tty=if(fy>=(ty?0),{fy+1},{ty+1s});
 		ttx=tx?fx;
 		tty=ty?fy;
 		^LPRange.fromPadRange(pads,fx,fy,ttx,tty);
@@ -103,11 +99,11 @@ Launchpad{
 	*setMatrixLED{|x,y,val|
 		midiout.isNil.if{"Launchpad Not available".postln;^this};
 		midiout.noteOn(0, Launchpad.xyMIDINode(x,y-1), val);
-		}
+	}
 	*setTopLED{|x,y,val|
 		midiout.isNil.if{"Launchpad Not available".postln;^this};
 		midiout.control(0, Launchpad.pos2CC(x), val);
-		}
+	}
 	*setPlayLED{|x,y,val|
 		midiout.isNil.if{"Launchpad Not available".postln;^this};
 		midiout.noteOn(0, Launchpad.xyMIDINode(8,y), val);
@@ -142,9 +138,7 @@ LPRange{
 		var ttx,tty,out;
 		ttx=tx?fx;
 		tty=ty?fy;
-		"ERROR: IS THIS BEFORE THE ERROR".debug(\before_copy);
-		out=LPRange.fromPadRange(pads,fx,fy,ttx,tty).debug(\copiedrange);
-		"ERROR: IS THIS AFTER THE ERROR".debug(\after_copy);
+		out=LPRange.fromPadRange(pads,fx,fy,ttx,tty);
 		^out;
 	}
 	setLED{|l|
@@ -191,14 +185,12 @@ LPPad{
 			var dep=stack.last.view;
 			dep.responseOn(this,stack.last.buttonid);
 			responseOffObject=[dep,stack.last.buttonid];
+			// responseOffObject=(view:dep,buttonid: stack.last.buttonid);//better implementation to be tested
 		}
 	}
 	responseOff{
 		responseOffObject!?{responseOffObject[0].responseOff(this,responseOffObject[1])};
-		// if(stack.size>0){
-		// 	var dep=stack.last.view;
-		// 	dep.responseOff(this,stack.last.buttonid);
-		// }
+		// responseOffObject!?{responseOffObject.view.responseOff(this,responseOffObject.buttonid)};//better implementation to be tested
 	}
 
 	init{|ax,ay|
@@ -266,20 +258,13 @@ LPLED{
 		}
 	}
 
-	// next{//this method should be removed i think
-	// 	var g,r;
-	// 	var ns=4.collect{|g| 4.collect{|r|[g,r]}}.flatten;
-	// 	#g,r=ns[(ns.indexOfEqual([green,red])+1)%ns.size];
-	// 	green=g;
-	// 	red=r;
-	// }
-
 	init{|gr,re,cl,co|
 		green=gr;
 		red=re;
 		clear=cl;
 		copy=co;
 	}
+
 	vel{
 		^(
 			(2.pow(4)*green.value.round.asInteger)
@@ -298,7 +283,6 @@ LPView{
 	var <>range;
 	var <>onfront;
 	var <>onhide;
-	// var <>onClose;
 	*new{|range,onfront,onhide|
 		^super.newCopyArgs(0,range,onfront,onhide);
 	}
@@ -320,9 +304,6 @@ LPView{
 			value=v;
 			this.updateLEDs;
 		}
-		// {
-			// value.debug("no new value");
-		// }
 	}
 	updateLEDs{
 	}
@@ -340,12 +321,6 @@ LPButton : LPView{//this is a different lpledbutton functionality than before de
 	*new {|range,onfront,onhide|
 		^super.new(range,onfront,onhide);
 	}
-	// init{|states,action,value,mode|
-	// 	this.states=states;
-	// 	this.action=action;
-	// 	this.mode=\forward;
-	// 	this.value=value;
-	// }
 	responseOn{|lppad,buttonid|
 		switch(mode,
 			\forward,{value=(value+1)%states.size},
@@ -371,12 +346,6 @@ LPPushButton : LPView{//this is a different lpledbutton functionality than befor
 	*new {|range,onfront,onhide|
 		^super.new(range,onfront,onhide);
 	}
-	// init{arg onPushLED,onReleaseLED,onPushFunction,onReleaseFunction;
-	// 	this.onPushLED=onPushLED?LPLED.red(1);
-	// 	this.onReleaseLED=onReleaseLED?LPLED.green(1);
-	// 	this.onPushFunction=onPushFunction;
-	// 	this.onReleaseFunction=onReleaseFunction?{};
-	// }
 	responseOn{|lppad,buttonid|
 		this.value=1;
 		onPushFunction.value(this);
@@ -429,11 +398,7 @@ LPPushStepButton : LPView{
 	}
 	front{arg ... args;
 		var led;
-		// if(states.notNil){
 		led=states[this.value];
-		// }{
-		// led=onReleaseLED;
-		// };
 		onfront.value(this,*args);
 		range.pads.do{|p,i|p.add(this,states[value],i)};
 	}
@@ -444,9 +409,6 @@ LPColorArea : LPView{
 	*new{|range,onfront,onhide|
 		^super.new(range,onfront,onhide);
 	}
-	// init{|led|
-	// 	this.led=led;
-	// }
 	front{arg ... args;
 		onfront.value(this,*args);
 		range.pads.do{|p,i|
@@ -526,7 +488,6 @@ LPSlider : LPView{
 					this.value=(value+inc).min(1).max(0);
 				};
 				action.value(this);
-				// this.updateLEDs;
 				0.2.wait;
 			})
 		}.play;
@@ -553,7 +514,6 @@ LPSwitchSlider : LPView{
 	var leds;
 	var <ledfunction;
 	var action;
-	// var <>value;
 	var <>state;
 	*new{|range,onfront,onhide|
 		^super.new(range,onfront,onhide);
@@ -588,7 +548,6 @@ LPSwitchSlider : LPView{
 		}
 	}
 	responseOn{|lppad,buttonid|
-		// var leds;
 		value=buttonid;
 		state=\push;
 		action.value(this);
@@ -612,23 +571,15 @@ LPSwitchSlider : LPView{
 		range.pads.do{|p,i|
 			p.updateLED(this,leds[i]);
 		};
-
-		// range.pads.do{|p,i|
-		// 	p.updateLED(this,this.getLED(p,i));
-		// }
 	}
 
 }
 
 LPInvisibleButtonArray : LPView{
 	var <>action;
-	// var <>value;
 	*new{|range,onfront,onhide|
-		^super.new(range,onfront,onhide);//.init(functions,onleds,ofleds);
+		^super.new(range,onfront,onhide);
 	}
-	// init{|action|
-	// 	this.action=action;
-	// }
 	responseOn{|lppad,buttonid|
 		this.value=buttonid;
 		action.value(this);
@@ -650,11 +601,6 @@ LPButtonArray : LPView{
 	*new{|range,onfront,onhide|
 		^super.new(range,onfront,onhide);
 	}
-	// init{|ofleds,onleds,action|
-	// 	this.ofleds=ofleds;
-	// 	this.onleds=onleds;
-	// 	this.action=action;
-	// }
 	responseOn{|lppad,buttonid|
 		if(value.notNil&&(value!=buttonid)){
 			range.pads.asArray[value].updateLED(this,ofleds[value]);
@@ -683,11 +629,6 @@ LPFaderV : LPView{
 	*new{|range,onfront,onhide|
 		^super.new(range,onfront,onhide);
 	}
-	// init{|ofled,onled,action|
-	// 	this.ofled=ofled;
-	// 	this.onled=onled;
-	// 	this.action=action;
-	// }
 	responseOn{|lppad,buttonid|
 		this.value=buttonid;
 		action.value(this);
