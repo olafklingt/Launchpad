@@ -17,12 +17,13 @@ a.action = {|b| "Print Current state:".post; b.value.postln; };
 a.front;
 )
 a.hide;// to hide the gui element::
+::
 
 CLASSMETHODS::
 
 METHOD:: new
 
-creates a new LPButton need to be initialized further for use.
+creates a new LPButton that needs to be initialized further for use.
 
 ARGUMENT:: range
 A LPRange you will get from Lauchpad.
@@ -44,11 +45,18 @@ Puts the LPButton on the front of the Launchpad. (like open a GUI).
 ARGUMENT::  ... args
 arguments which will forwarded to the onfront-function.
 
-
-
 METHOD:: hide
 
 Hides the LPButton from the Launchpad.
+
+ARGUMENT::  updateLEDs
+
+if LEDs should be updated or not.
+To not update LEDs can make the response faster if after a close something else is opened.
+
+ARGUMENT::  ... args
+
+further arguments will forwarded to the onhide-function.
 
 METHOD:: states
 

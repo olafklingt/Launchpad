@@ -447,7 +447,7 @@ LPColorArea : LPView{
 
 LPSlider : LPView{
 	var statevarroutine;
-	var <>onoff;
+	var onoff;
 	// var <value;
 	var <>action;
 	var <>color;
@@ -458,7 +458,7 @@ LPSlider : LPView{
 	*new {|range,onfront,onhide|
 		^super.new(range,onfront,onhide);
 	}
-	getLED{|p,i|
+	prGetLED{|p,i|
 		var lls;
 		var size=range.pads.size;
 		var ledstate=value*size;
@@ -472,7 +472,7 @@ LPSlider : LPView{
 	}
 	updateLEDs{
 		range.pads.do{|p,i|
-			p.updateLED(this,this.getLED(p,i));
+			p.updateLED(this,this.prGetLED(p,i));
 		}
 	}
 	responseOn{|lppad,buttonid|
@@ -499,7 +499,7 @@ LPSlider : LPView{
 		var size=range.pads.size;
 		onfront.value(this,*args);
 		range.pads.do{|p,i|
-			p.add(this,this.getLED(p,i),i);
+			p.add(this,this.prGetLED(p,i),i);
 		};
 	}
 }
